@@ -66,26 +66,18 @@ class AdminMenuPage {
 
     ElementosAdmin(){
         cy.get(this.selectorList().createHeroeButton).should('be.visible').and('not.have.attr', 'disabled')
-        cy.get(this.selectorList().likeButton).eq(0).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(1).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(2).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(3).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(4).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(0).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(1).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(2).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(3).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(4).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().editButton).eq(0).should('be.visible').and('not.have.attr', 'disabled')
-        cy.get(this.selectorList().editButton).eq(1).should('be.visible').and('not.have.attr', 'disabled')
-        cy.get(this.selectorList().editButton).eq(2).should('be.visible').and('not.have.attr', 'disabled')
-        cy.get(this.selectorList().editButton).eq(3).should('be.visible').and('not.have.attr', 'disabled')
-        cy.get(this.selectorList().editButton).eq(4).should('be.visible').and('not.have.attr', 'disabled')
-        cy.get(this.selectorList().deleteButton).eq(0).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().deleteButton).eq(1).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().deleteButton).eq(2).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().deleteButton).eq(3).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().deleteButton).eq(4).should('be.visible').and('be.enabled')
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().likeButton).eq(i).should('be.visible').and('be.enabled')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().saveButton).eq(i).should('be.visible').and('be.enabled')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().editButton).eq(i).should('be.visible').and('not.have.attr', 'disabled')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().deleteButton).eq(i).should('be.visible').and('be.enabled')
+        }
     }
 
     ElementosEditPage(){

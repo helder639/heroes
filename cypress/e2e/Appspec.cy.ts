@@ -1,4 +1,4 @@
-//para este teste funcionar deve haver 5 herois
+//para este teste funcionar deve haver 5 herois\\for this test to work there must be 5 heroes
 import LoginPage from '../fixtures/loginPage'
 import MenuPage from '../fixtures/menuPage'
 

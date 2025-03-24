@@ -10,7 +10,7 @@ const heroePage = new HeroePage
 const AdminmenuPage = new AdminMenuPage
 
 describe('Elementos do App', () => {
-  it('conferindo os elementos do App do admin', () => {
+  it.only('conferindo os elementos do App do admin', () => {
     loginPage.paginaLogin()
     loginPage.LoginAdmin()
     menuPage.ElementosApp()

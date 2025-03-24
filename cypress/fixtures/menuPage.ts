@@ -47,63 +47,48 @@ class MenuPage{
     ElementosApp(){
         cy.get(this.selectorList().cyheroeLogo).should('be.visible')
         cy.get(this.selectorList().logoutButton).eq(1).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().pictureHeroes).eq(0).should('be.visible')
-        cy.get(this.selectorList().pictureHeroes).eq(1).should('be.visible')
-        cy.get(this.selectorList().pictureHeroes).eq(2).should('be.visible')
-        cy.get(this.selectorList().pictureHeroes).eq(3).should('be.visible')
-        cy.get(this.selectorList().pictureHeroes).eq(4).should('be.visible')
-        cy.get(this.selectorList().priceHeroe).eq(0).should('be.visible').and('contain', '$')
-        cy.get(this.selectorList().priceHeroe).eq(1).should('be.visible').and('contain', '$')
-        cy.get(this.selectorList().priceHeroe).eq(2).should('be.visible').and('contain', '$')
-        cy.get(this.selectorList().priceHeroe).eq(3).should('be.visible').and('contain', '$')
-        cy.get(this.selectorList().priceHeroe).eq(4).should('be.visible').and('contain', '$')
-        cy.get(this.selectorList().fansHeroe).eq(0).should('be.visible')
-        cy.get(this.selectorList().fansHeroe).eq(1).should('be.visible')
-        cy.get(this.selectorList().fansHeroe).eq(2).should('be.visible')
-        cy.get(this.selectorList().fansHeroe).eq(3).should('be.visible')
-        cy.get(this.selectorList().fansHeroe).eq(4).should('be.visible')
-        cy.get(this.selectorList().savesHeroe).eq(0).should('be.visible')
-        cy.get(this.selectorList().savesHeroe).eq(1).should('be.visible')
-        cy.get(this.selectorList().savesHeroe).eq(2).should('be.visible')
-        cy.get(this.selectorList().savesHeroe).eq(3).should('be.visible')
-        cy.get(this.selectorList().savesHeroe).eq(4).should('be.visible')
-        cy.get(this.selectorList().priceFansSaves).eq(0).should('be.visible').and('contain', 'Price')
-        cy.get(this.selectorList().priceFansSaves).eq(1).should('be.visible').and('contain', 'Fans')
-        cy.get(this.selectorList().priceFansSaves).eq(2).should('be.visible').and('contain', 'Saves')
-        cy.get(this.selectorList().priceFansSaves).eq(3).should('be.visible').and('contain', 'Price')
-        cy.get(this.selectorList().priceFansSaves).eq(4).should('be.visible').and('contain', 'Fans')
-        cy.get(this.selectorList().priceFansSaves).eq(5).should('be.visible').and('contain', 'Saves')
-        cy.get(this.selectorList().priceFansSaves).eq(6).should('be.visible').and('contain', 'Price')
-        cy.get(this.selectorList().priceFansSaves).eq(7).should('be.visible').and('contain', 'Fans')
-        cy.get(this.selectorList().priceFansSaves).eq(8).should('be.visible').and('contain', 'Saves')
-        cy.get(this.selectorList().priceFansSaves).eq(9).should('be.visible').and('contain', 'Price')
-        cy.get(this.selectorList().priceFansSaves).eq(10).should('be.visible').and('contain', 'Fans')
-        cy.get(this.selectorList().priceFansSaves).eq(11).should('be.visible').and('contain', 'Saves')
-        cy.get(this.selectorList().priceFansSaves).eq(12).should('be.visible').and('contain', 'Price')
-        cy.get(this.selectorList().priceFansSaves).eq(13).should('be.visible').and('contain', 'Fans')
-        cy.get(this.selectorList().priceFansSaves).eq(14).should('be.visible').and('contain', 'Saves')
-        cy.get(this.selectorList().heroeName).eq(0).should('be.visible')
-        cy.get(this.selectorList().heroeName).eq(1).should('be.visible')
-        cy.get(this.selectorList().heroeName).eq(2).should('be.visible')
-        cy.get(this.selectorList().heroeName).eq(3).should('be.visible')
-        cy.get(this.selectorList().heroeName).eq(4).should('be.visible')
-        cy.get(this.selectorList().powers).eq(0).should('be.visible')
-        cy.get(this.selectorList().powers).eq(1).should('be.visible')
-        cy.get(this.selectorList().powers).eq(2).should('be.visible')
-        cy.get(this.selectorList().powers).eq(3).should('be.visible')
-        cy.get(this.selectorList().powers).eq(4).should('be.visible')
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().pictureHeroes).eq(i).should('be.visible')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().priceHeroe).eq(i).should('be.visible').and('contain', '$')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().fansHeroe).eq(i).should('be.visible')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().savesHeroe).eq(i).should('be.visible')
+        }
+        const Pri = [0, 3, 6, 9, 12];
+        const Fan = [1, 4, 7, 10, 13];
+        const Sav = [2, 5, 8, 11, 14];
+        for (let i = 0; i < 15; i++){
+            if (Pri.includes(i)){
+                cy.get(this.selectorList().priceFansSaves).eq(i).should('be.visible').and('contain', 'Price')
+            }
+
+            else if(Fan.includes(i)){
+                cy.get(this.selectorList().priceFansSaves).eq(i).should('be.visible').and('contain', 'Fans')
+            }
+
+            else if(Sav.includes(i)){
+                cy.get(this.selectorList().priceFansSaves).eq(i).should('be.visible').and('contain', 'Saves')
+            }
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().heroeName).eq(i).should('be.visible')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().powers).eq(i).should('be.visible')
+        }
     }
     ElementosUser(){
-        cy.get(this.selectorList().likeButton).eq(0).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(1).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(2).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(3).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().likeButton).eq(4).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(0).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(1).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(2).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(3).should('be.visible').and('be.enabled')
-        cy.get(this.selectorList().saveButton).eq(4).should('be.visible').and('be.enabled')
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().likeButton).eq(i).should('be.visible').and('be.enabled')
+        }
+        for (let i = 0; i < 5; i++){
+            cy.get(this.selectorList().saveButton).eq(i).should('be.visible').and('be.enabled')
+        }
     }
 }
 export default MenuPage
